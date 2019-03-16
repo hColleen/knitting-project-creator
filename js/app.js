@@ -1,14 +1,43 @@
+//gather form information (assistance from here https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio)
+let form = document.querySelector('form');
+let log = document.querySelector('#log');
+let output = "";
+
+form.addEventListener("submit", function(e){
+    let data = new FormData(form);
+    for (const entry of data){
+        output =  entry[1];
+    };
+    console.log(output);
+    event.preventDefault();
+}, false);
+
+
 //repeat number arrays
 
 let fibonacciArray = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89], binaryArray = [2, 4, 8, 16, 32, 64, 128];
+let rowSelection;
+
+if (output = "binary"){
+    rowSelection = binaryArray;
+} else {
+    rowSelection = fibonacciArray;
+}
+
+let rowArray = [];
+let repeatCount = document.getElementById("numRows").value;
+
+for(let i = 0; i < repeatCount; i++){
+    rowArray.push(rowSelection[i]);
+}
 
 //color array
 
 let fullColorArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
 let colorArray = [];
-let count = document.getElementById("numColors").value;
+let colorCount = document.getElementById("numColors").value;
 
-for (let i = 0; i < count; i++) {
+for (let i = 0; i < colorCount; i++) {
     colorArray.push(fullColorArray[i]);
 }
 
