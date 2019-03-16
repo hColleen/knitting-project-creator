@@ -1,0 +1,14 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 60%;
+    margin: auto;
+    font-family: 'Biryani', sans-serif;
+}
+
+h1{
+    font-family: 'Black And White Picture', sans-serif;
+    font-size: 4em;
+}
