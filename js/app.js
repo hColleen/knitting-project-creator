@@ -2,6 +2,8 @@
 let form = document.querySelector('form');
 let log = document.querySelector('#log');
 let output = "";
+let fibonacciArray = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89], binaryArray = [2, 4, 8, 16, 32, 64, 128];
+let rowSelection = null;
 
 form.addEventListener("submit", function(e){
     let data = new FormData(form);
@@ -9,40 +11,21 @@ form.addEventListener("submit", function(e){
         output =  entry[1];
     };
     console.log(output);
+    if (output === "binary"){
+        rowSelection = binaryArray;
+        output = "";
+        console.log(rowSelection);
+    } else if (output === "fibonacci") {
+        rowSelection = fibonacciArray;
+        output = "";
+        console.log(rowSelection);
+    } else {
+        rowSelection = null;
+    }
     event.preventDefault();
 }, false);
 
-
-//repeat number arrays
-
-let fibonacciArray = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89], binaryArray = [2, 4, 8, 16, 32, 64, 128];
-let rowSelection;
-
-if (output = "binary"){
-    rowSelection = binaryArray;
-} else {
-    rowSelection = fibonacciArray;
-}
-
-let rowArray = [];
-let repeatCount = document.getElementById("numRows").value;
-
-for(let i = 0; i < repeatCount; i++){
-    rowArray.push(rowSelection[i]);
-}
-
-//color array
-
-let fullColorArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
-let colorArray = [];
-let colorCount = document.getElementById("numColors").value;
-
-for (let i = 0; i < colorCount; i++) {
-    colorArray.push(fullColorArray[i]);
-}
-
-//select color without repeats (tutorial from here: https://inteist.com/javascript-generate-pseudo-random-set/ )
-
+//pseudo random, non repeating array generator (tutorial from here: https://inteist.com/javascript-generate-pseudo-random-set/ )
 function numArr(limit) {
     list = [];
     for (let i = 0; i < limit; i++) {
@@ -63,6 +46,29 @@ function shuffle(array) {
     }
     return array;
 }
+
+//repeat number arrays
+
+
+
+let rowArray = [];
+let repeatCount = document.getElementById("numRows").value;
+
+for(let i = 0; i < repeatCount; i++){
+    rowArray.push(rowSelection[i]);
+}
+
+//color array
+
+let fullColorArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+let colorArray = [];
+let colorCount = document.getElementById("numColors").value;
+
+for (let i = 0; i < colorCount; i++) {
+    colorArray.push(fullColorArray[i]);
+}
+
+//select color without repeats
 
 let getColors = shuffle(numArr(colorArray.length))
 
