@@ -12,3 +12,13 @@ h1{
     font-family: 'Black And White Picture', sans-serif;
     font-size: 4em;
 }
+
+h2{
+    font-family: 'Black And White Picture', sans-serif;
+    font-size: 2em;
+}
+
+button{
+    align-self: center;
+    width: 25%;
+}

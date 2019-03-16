@@ -13,16 +13,35 @@
 
 <body>
     <h1>Create a colorwork pattern</h1>
-    <p>Select the number of colors you'd like to work with then click Submit for the pattern to be generated.  Each time you click "Submit", a new pattern will be generated.</p>
-    <p>Please note: <strong>The pattern will not be saved if you navigate away from this page!</strong> To save the pattern, use the "Print/Save" button below. You may save as a PDF or print the pattern out, as you like.</p>
+    <article>
+        <h2>Why these numbers?</h2>
+        <p>Color changes based on either fibonacci numbers or binary numbers are visually pleasing, but what are they?
+        </p>
+        <p>Fibonacci numbers are found frequently in nature, aproximating the golden spiral when set in a tile pattern
+            and often occuring elsewhere in nature (for example, pineapples often have 8 spirals in one direction and 13
+            in another, both of which are Fibonacci numbers). The first 10 numbers of the sequence are 1, 1, 2, 3, 5, 8,
+            13, 21, 34, 55. To get the numbers of the Fibonacci sequence, you take the two previous numbers and add them
+            (0 is implied the first number, so 0+1=1, 1+1=2, 1+2=3 and so on). This pattern generator will limit the
+            number of rows to the first 11 numbers of the Fibonacci sequence (up to 89).</p>
+        <p>Binary based numbers are multiples of 2. While these numbers have become more important as the world becomes
+            more digital, they are still visually pleasing as a geometric progression. The first 10 numbers in the binary
+            progression are 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024. This pattern creator will limit the number of rows
+            to the first seven numbers of the binary sequence (up to 128).</p>
+        </article>
+        <p>Select the number of colors you'd like to work with then click Submit for the pattern to be generated. Each
+            time you click "Submit", a new pattern will be generated.</p>
+        <p>Please note: <strong>The pattern will not be saved if you navigate away from this page!</strong> To save the
+            pattern, use the "Print/Save" button below. You may save as a PDF or print the pattern out, as you like.</p>
     <form class="setup">
-        Number of Colors (between 2-10): <input type="number" name="numColors" min="2" max="10">
-        Number of Repeats (between 1-20): <input type="number" name="numRows" min="1" max="20">
+        Number of Colors (between 2-10): <input type="number" name="numColors" min="2" max="10"><br>
+        Number of Repeats (between 1-20): <input type="number" name="numRows" min="1" max="20"><br>
+        Binary or Fibonacci: <input type="radio" name="binary" id="binary" value="binary"><label>Binary based
+            numbers</label> <input type="radio" name="fibonacci" id="fibonacci" value="fibonacci"><label>Fibonacci based
+            numbers</label><br>
         <input type="submit" value="Submit">
     </form>
-    <form class = "print">
-    <input type="button" value="Print/Save" onclick="window.print()">
-    </form>
+    <p id="pattern"></p>
+    <button type="button" onclick="window.print()">Print/Save</button>
     <script src="js/app.js"></script>
 </body>
 
