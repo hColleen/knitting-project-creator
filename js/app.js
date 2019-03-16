@@ -4,21 +4,21 @@ let log = document.querySelector('#log');
 let output = "";
 let fibonacciArray = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89], binaryArray = [2, 4, 8, 16, 32, 64, 128];
 let rowSelection = null;
+let colorCount = "";
+let repeatCount = "";
 
 form.addEventListener("submit", function(e){
     let data = new FormData(form);
     for (const entry of data){
         output =  entry[1];
+        console.log(output);
     };
-    console.log(output);
     if (output === "binary"){
         rowSelection = binaryArray;
         output = "";
-        console.log(rowSelection);
     } else if (output === "fibonacci") {
         rowSelection = fibonacciArray;
         output = "";
-        console.log(rowSelection);
     } else {
         rowSelection = null;
     }
@@ -52,7 +52,6 @@ function shuffle(array) {
 
 
 let rowArray = [];
-let repeatCount = document.getElementById("numRows").value;
 
 for(let i = 0; i < repeatCount; i++){
     rowArray.push(rowSelection[i]);
@@ -62,7 +61,6 @@ for(let i = 0; i < repeatCount; i++){
 
 let fullColorArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
 let colorArray = [];
-let colorCount = document.getElementById("numColors").value;
 
 for (let i = 0; i < colorCount; i++) {
     colorArray.push(fullColorArray[i]);
