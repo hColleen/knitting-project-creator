@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Knitting Colors</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script type="text/javascript"></script>
+</head>
+
+<body>
+    <h1>Create a colorwork pattern</h1>
+    <p>Select the number of colors you'd like to work with then click Submit for the pattern to be generated.  Each time you click "Submit", a new pattern will be generated.</p>
+    <p>Please note: <strong>The pattern will not be saved if you navigate away from this page!</strong> To save the pattern, use the "Print/Save" button below. You may save as a PDF or print the pattern out, as you like.</p>
+    <form class="setup">
+        Number of Colors (between 2-10): <input type="number" name="numColors" min="2" max="10">
+        Number of Repeats (between 1-20): <input type="number" name="numRows" min="1" max="20">
+        <input type="submit" value="Submit">
+    </form>
+    <form></form>
+    <input type="button" value="Print/Save" onclick="window.print()">
+    </form>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
