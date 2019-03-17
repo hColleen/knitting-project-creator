@@ -1,7 +1,6 @@
 //gather form information (assistance from here https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio)
 let form = document.querySelector('form');
-let log = document.querySelector('#log');
-let output = "";
+let output = [];
 let fibonacciArray = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89], binaryArray = [2, 4, 8, 16, 32, 64, 128];
 let rowSelection = null;
 let colorCount = "";
@@ -10,15 +9,15 @@ let repeatCount = "";
 form.addEventListener("submit", function(e){
     let data = new FormData(form);
     for (const entry of data){
-        output =  entry[1];
+        output.push(entry[1]);
         console.log(output);
     };
-    if (output === "binary"){
+    if (output[2] === "binary"){
         rowSelection = binaryArray;
-        output = "";
-    } else if (output === "fibonacci") {
+        output = [];
+    } else if (output[2] === "fibonacci") {
         rowSelection = fibonacciArray;
-        output = "";
+        output = [];
     } else {
         rowSelection = null;
     }
