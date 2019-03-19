@@ -22,3 +22,7 @@ button{
     align-self: center;
     width: 25%;
 }
+
+.hide{
+    display: none;
+}

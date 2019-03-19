@@ -12,6 +12,8 @@ form.addEventListener("submit", function(e){
         output.push(entry[1]);
         console.log(output);
     };
+    document.querySelector('article').classList.add('hide');
+    document.querySelector('button').classList.remove('hide');
     if (output[2] === "binary"){
         rowSelection = binaryArray;
         output = [];
@@ -47,8 +49,6 @@ function shuffle(array) {
 }
 
 //repeat number arrays
-
-
 
 let rowArray = [];
 
