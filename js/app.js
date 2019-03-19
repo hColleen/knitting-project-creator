@@ -72,7 +72,3 @@ let getColors = shuffle(numArr(colorArray.length))
 //select random repeat numbers
 
 //display color and number
-
-//repeat?
-
-//print or save results
