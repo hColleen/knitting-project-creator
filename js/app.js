@@ -6,10 +6,35 @@ let fibonacciArray = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89], binaryArray = [2, 4, 8
 let rowSelection = null;
 let colors;
 let repeats;
+let rowArray = [];
+let fullColorArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+let colorArray = [];
 
+//pseudo random, non repeating array generator (tutorial from here: https://inteist.com/javascript-generate-pseudo-random-set/ )
+function numArr(limit) {
+    list = [];
+    for (let i = 0; i < limit; i++) {
+        list.push(i);
+    }
+    return list;
+}
+
+function shuffle(array) {
+    let i = array.length,
+        j = 0,
+        temp;
+    while (i--) {
+        j = Math.floor(Math.random() * (i + 1))
+        temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+}
 
 //on submit function
 form.addEventListener("submit", function (e) {
+    event.preventDefault();
     let data = new FormData(form);
     for (const entry of data) {
         //gather information from form
@@ -35,43 +60,13 @@ form.addEventListener("submit", function (e) {
     } else {
         rowSelection = null;
     }
-    event.preventDefault();
 
-
-    //pseudo random, non repeating array generator (tutorial from here: https://inteist.com/javascript-generate-pseudo-random-set/ )
-    function numArr(limit) {
-        list = [];
-        for (let i = 0; i < limit; i++) {
-            list.push(i);
-        }
-        return list;
-    }
-
-    function shuffle(array) {
-        let i = array.length,
-            j = 0,
-            temp;
-        while (i--) {
-            j = Math.floor(Math.random() * (i + 1))
-            temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
-        }
-        return array;
-    }
     //repeat number arrays
-
-    let rowArray = [];
-
     for (let i = 0; i < repeats; i++) {
         rowArray.push(rowSelection[i]);
     }
 
     //color array
-
-    let fullColorArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
-    let colorArray = [];
-
     for (let i = 0; i < colors; i++) {
         colorArray.push(fullColorArray[i]);
     }
@@ -81,6 +76,8 @@ form.addEventListener("submit", function (e) {
     let getColors = shuffle(numArr(colorArray.length))
 
     //select random repeat numbers
+
+    let getRows = shuffle(numArr(rowSelection.length))
 
     //display color and number
 }, false);
