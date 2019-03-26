@@ -9,28 +9,9 @@ let repeats;
 let rowArray = [];
 let fullColorArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
 let colorArray = [];
+let patternColors = [];
+let rowNumbers = [];
 
-//pseudo random, non repeating array generator (tutorial from here: https://inteist.com/javascript-generate-pseudo-random-set/ )
-function numArr(limit) {
-    list = [];
-    for (let i = 0; i < limit; i++) {
-        list.push(i);
-    }
-    return list;
-}
-
-function shuffle(array) {
-    let i = array.length,
-        j = 0,
-        temp;
-    while (i--) {
-        j = Math.floor(Math.random() * (i + 1))
-        temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
-    return array;
-}
 
 //on submit function
 form.addEventListener("submit", function (e) {
@@ -41,9 +22,10 @@ form.addEventListener("submit", function (e) {
         output.push(entry[1]);
         console.log(output);
     };
-    //hide article, reveal print button
+    //hide article, reveal print button, reveal pattern
     document.querySelector('article').classList.add('hide');
     document.querySelector('button').classList.remove('hide');
+    document.getElementById('pattern').classList.remove('hide');
     //assign colors and repeat values
     let colorCount = output[0];
     let repeatCount = output[1];
@@ -71,13 +53,25 @@ form.addEventListener("submit", function (e) {
         colorArray.push(fullColorArray[i]);
     }
 
-    //select color without repeats
+    function getRandomItem(arr){
+        return arr[Math.floor(Math.random() * arr.length)];
+    }
 
-    let getColors = shuffle(numArr(colorArray.length))
+    //select color 
 
+    for (let i = 0; i < repeats; i++){
+        let patColor = getRandomItem(colorArray)
+        patternColors.push(patColor);
+    }
     //select random repeat numbers
 
-    let getRows = shuffle(numArr(rowSelection.length))
+
+    for (let i = 0; i < repeats; i++){
+        let num = getRandomItem(rowArray)
+        rowNumbers.push(num);
+    }
 
     //display color and number
+
+    document.getElementById('pattern').innerHTML = `${patternColors} <br /> ${rowNumbers}`
 }, false);
