@@ -11,6 +11,7 @@ let fullColorArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
 let colorArray = [];
 let patternColors = [];
 let rowNumbers = [];
+let rows = [];
 
 
 //on submit function
@@ -20,7 +21,6 @@ form.addEventListener("submit", function (e) {
     for (const entry of data) {
         //gather information from form
         output.push(entry[1]);
-        console.log(output);
     };
     //hide article, reveal print button, reveal pattern
     document.querySelector('article').classList.add('hide');
@@ -44,8 +44,10 @@ form.addEventListener("submit", function (e) {
     }
 
     //repeat number arrays
+    rows = rowSelection.concat(rowSelection.concat(rowSelection))
+    
     for (let i = 0; i < repeats; i++) {
-        rowArray.push(rowSelection[i]);
+        rowArray.push(rows[i]);
     }
 
     //color array
